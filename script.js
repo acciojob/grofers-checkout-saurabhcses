@@ -1,29 +1,16 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+const ele = document.querySelectorAll('.price');
+let total = 0;
 
-const getSum = () => {
-//Add your code here
-	 const prices = document.querySelectorAll(".price");
+for (let i = 0; i < ele.length; i++) {
+  total += parseFloat(ele[i].textContent);
+}
 
-    let total = 0;
-    prices.forEach(cell => {
-      total += parseFloat(cell.textContent);
-    });
-	
-const table = document.querySelector("table");
-const newRow = document.createElement("tr");
-const labelCell = document.createElement("td");
-labelCell.textContent = "Total";
-labelCell.style.fontWeight = "bold";
-const totalCell = document.createElement("td");
-totalCell.textContent = total;
-totalCell.style.fontWeight = "bold";
-newRow.appendChild(labelCell);
-newRow.appendChild(totalCell);
-table.appendChild(newRow);
-  
-};
+const totalRow = document.createElement("tr");
+const totalCol1 = document.createElement("td");
+totalCol1.textContent = "Total"; 
 
-getSumBtn.addEventListener("click", getSum);
-
+const totalCol2 = document.createElement("td");
+totalCol2.textContent = total;
+totalRow.appendChild(totalCol1);
+totalRow.appendChild(totalCol2);
+document.querySelector("table").appendChild(totalRow);
