@@ -1,3 +1,5 @@
+document.getElementById("calcBtn").addEventListener("click", function () {
+
 const ele = document.querySelectorAll('.price');
 let total = 0;
 
@@ -19,3 +21,4 @@ totalRow.appendChild(totalCol1);
 totalRow.appendChild(totalCol2);
 
 document.querySelector("table").appendChild(totalRow);
+});
